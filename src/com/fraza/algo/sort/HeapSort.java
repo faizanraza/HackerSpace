@@ -1,0 +1,75 @@
+package com.fraza.algo.sort;
+
+import java.util.Arrays;
+
+/*
+ * Create heap of all elements
+ * Make sure parent > children to create max heap
+ * Then swap the root node with the last node and delete the last node from heap
+ * Repeat the process
+ * 
+ * Space complexity is O(n)
+ * Time complexity nlog(n) worst case n^2 (multiple swaps)
+ */
+public class HeapSort
+{
+	public static void main(String[] args)
+	{
+		// test array
+		Integer[] arr =
+		{ 1, 4, 3, 2, 64, 3, 2, 4, 5, 5, 2, 12, 14, 5, 3, 0, -1 };
+		String[] strarr =
+		{ "hope you find this helpful!", "wef", "rg", "q2rq2r", "avs", "erhijer0g", "ewofij", "gwe", "q", "random" };
+		arr = heapsort(arr);
+		strarr = heapsort(strarr);
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(strarr));
+	}
+
+	// O(nlogn) TIME, O(1) SPACE, NOT STABLE
+	public static <E extends Comparable<E>> E[] heapsort(E[] arr)
+	{
+		int heaplength = arr.length;
+		for (int i = arr.length / 2; i > 0; i--)
+		{
+			arr = maxheapify(arr, i, heaplength);
+		}
+
+		for (int i = arr.length - 1; i >= 0; i--)
+		{
+			E max = arr[0];
+			arr[0] = arr[i];
+			arr[i] = max;
+			heaplength--;
+			arr = maxheapify(arr, 1, heaplength);
+		}
+
+		return arr;
+	}
+
+	// Creates maxheap from array
+	public static <E extends Comparable<E>> E[] maxheapify(E[] arr, Integer node, Integer heaplength)
+	{
+		Integer left = node * 2;
+		Integer right = node * 2 + 1;
+		Integer largest = node;
+
+		if (left.compareTo(heaplength) <= 0 && arr[left - 1].compareTo(arr[node - 1]) >= 0)
+		{
+			largest = left;
+		}
+		if (right.compareTo(heaplength) <= 0 && arr[right - 1].compareTo(arr[largest - 1]) >= 0)
+		{
+			largest = right;
+		}
+		if (largest != node)
+		{
+			E temp = arr[node - 1];
+			arr[node - 1] = arr[largest - 1];
+			arr[largest - 1] = temp;
+			maxheapify(arr, largest, heaplength);
+		}
+		return arr;
+	}
+}
+
