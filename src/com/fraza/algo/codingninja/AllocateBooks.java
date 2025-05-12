@@ -1,7 +1,6 @@
 package com.fraza.algo.codingninja;
 
-import java.util.* ;
-import java.io.*;
+import java.util.Arrays;
 
 //https://www.codingninjas.com/codestudio/problems/ayush-gives-ninjatest_1097574
 public class AllocateBooks 

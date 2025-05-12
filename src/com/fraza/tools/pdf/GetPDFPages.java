@@ -15,10 +15,10 @@ public class GetPDFPages
 {
 	public static void main(String[] args) 
 	{
-		String filePath = "/Users/fraza/Downloads/E1907SenoritaSaleDeed.pdf";
+		String filePath = "/Users/fraza/Downloads/Form_14ANEW_MIZAN RAZA.pdf";
 		if(args.length > 0) filePath = args[0];
 		
-		String pageList = "0,21";
+		String pageList = "0,3";
 		if(args.length > 1) pageList = args[1];
 		
 		getPages(filePath, pageList);

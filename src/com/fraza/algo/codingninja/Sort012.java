@@ -1,7 +1,6 @@
 package com.fraza.algo.codingninja;
 
 import java.util.Arrays;
-import java.util.ArrayList;
 
 //https://www.codingninjas.com/codestudio/problems/sum-of-infinite-array_873335
 public class Sort012 

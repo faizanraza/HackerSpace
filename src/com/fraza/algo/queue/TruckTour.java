@@ -1,10 +1,9 @@
 package com.fraza.algo.queue;
 
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/truck-tour/problem
 public class TruckTour {

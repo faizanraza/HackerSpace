@@ -1,36 +1,90 @@
 package com.fraza.test;
 
+import java.util.Iterator;
+import java.util.TreeMap;
+
+import com.fraza.leetcode.MergeMultipleLiskedList;
+import com.fraza.leetcode.MergeMultipleLiskedList.ListNode;
+
 public class test
 {
 
-	public static void main(String[] args)
+	public static ListNode mergeKLists(ListNode[] lists) 
 	{
-		int[] arr =
-		{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 4, 5 };
-		int n = 10;
-		int count = 0;
-		Math.max(n, count);
-		long t1 = System.nanoTime();
-		long t2 = System.nanoTime();
-		for (int i = 0; i < n - 1; i++)
+		ListNode head = new ListNode();
+		
+		if(lists.length == 0) return head;
+		if(lists.length == 1) return lists[0];
+
+		ListNode iter = head;
+		int min = 10001;
+		for(ListNode ln: lists)
 		{
-			int j = i + 1;
-			t1 = System.nanoTime();
-			int max = Math.max(arr[i], arr[j]);
-			t2 = System.nanoTime();
-			System.out.println(i + "," + j + " - " + (t2 - t1) / 1000d);
-
-			t1 = System.nanoTime();
-			if (arr[i] == 1 || arr[j] == 1) count++;
-			System.out.println(i + "," + j + " - " + (System.nanoTime() - t1) / 1000d);
-
-			for (j++; j < n; j++)
+			if(ln.val < min)
 			{
-				t1 = System.nanoTime();
-				max = Math.max(max, arr[j]);
-				if (arr[i] * arr[j] <= max) count++;
-				System.out.println(i + "," + j + " - " + (System.nanoTime() - t1) / 1000d);
+				min = ln.val;
+				iter = ln;
+				ln = ln.next;
 			}
 		}
+		
+		head = iter;
+
+		return head;
 	}
+
+	public static void main(String[] args)
+	{		
+		sample1();
+	}
+
+	public static class ListNode 
+	{
+	     int val;
+	     ListNode next;
+	     ListNode() {}
+	     ListNode(int val) { this.val = val; }
+	     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+	}
+	
+	public static ListNode createLL(int[] arr)
+	 {
+		 if(arr.length == 0) return null;
+		 ListNode next = new ListNode(arr[0]);
+		 ListNode prev = next;
+		 ListNode head = next;
+		 for(int i=1; i<arr.length; ++i)
+		 {
+			 prev = next;
+			 next = new ListNode(arr[i]);
+			 prev.next = next;
+		 }
+		 
+		 return head;
+	 }
+	 
+	 public static void printLL(ListNode ll)
+	 {
+		if(ll == null) System.out.print("[]");
+		while(ll != null)
+		{
+			System.out.print(ll.val + " -> ");
+			ll = ll.next;
+		}
+		System.out.println();
+	 }
+	 
+	 public static void sample1() //1->1->2->3->4->4->5->6
+	 {
+		int[][] lists = new int[][] {{1,4,5},{1,3,4},{2,6}};
+		ListNode[] LLs = new ListNode[lists.length];
+		for(int i =0; i<lists.length; ++i )
+		{
+			int[] list = lists[i];
+			ListNode ll = createLL(list);
+			LLs[i] = ll;
+		}
+		ListNode ans = mergeKLists(LLs);
+		printLL(ans);
+	 }
 }

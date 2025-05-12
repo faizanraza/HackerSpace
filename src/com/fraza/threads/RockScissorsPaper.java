@@ -1,6 +1,10 @@
 package com.fraza.threads;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 public class RockScissorsPaper
 {
@@ -42,10 +46,10 @@ public class RockScissorsPaper
 		pool.shutdown();
 	}
 
-	public void run()
-	{
-		FutureTask player1 = new FutureTask(new ThisCallable());
-	}
+//	public void run()
+//	{
+//		FutureTask player1 = new FutureTask(new ThisCallable());
+//	}
 
 	public static int three_sided_coin()
 	{
@@ -67,11 +71,11 @@ public class RockScissorsPaper
 		return String.format("Two's '%s' beats One's '%s'.", second_hand, first_hand);
 	}
 
-	public class ThisCallable implements Callable
-	{
-		public Integer call() throws java.io.IOException
-		{
-			return 1;
-		}
-	}
+//	public class ThisCallable implements Callable
+//	{
+//		public Integer call() throws java.io.IOException
+//		{
+//			return 1;
+//		}
+//	}
 }

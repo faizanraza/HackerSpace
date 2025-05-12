@@ -1,10 +1,10 @@
 package com.fraza.algo.stack;
 
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Stack;
 
 //https://www.hackerrank.com/challenges/waiter/problem
 public class WaiterPlates {

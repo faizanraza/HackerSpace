@@ -1,12 +1,10 @@
 package com.fraza.algo.stack;
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Stack;
 
 //https://www.hackerrank.com/challenges/largest-rectangle/problem
 //example - 8/1 3 6 8 7 2 4 1 (ans = 18)

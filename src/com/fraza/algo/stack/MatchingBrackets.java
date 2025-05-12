@@ -1,12 +1,9 @@
 package com.fraza.algo.stack;
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/balanced-brackets/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=7-day-campaign
 public class MatchingBrackets {

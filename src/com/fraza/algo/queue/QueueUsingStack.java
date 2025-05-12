@@ -1,7 +1,7 @@
 package com.fraza.algo.queue;
 
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
+import java.util.Stack;
 
 //https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 public class QueueUsingStack {
